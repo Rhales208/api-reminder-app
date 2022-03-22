@@ -6,7 +6,7 @@ exports.createReminders = (req, res) => {
   const db = connectDb();
   db.collection("reminders") 
     .add(newReminder)
-    .then((doc) => res.status(201).send(doc.id))
+    .then((doc) => res.status(201).send({data: doc.id}))
     .catch((err) => res.status(500).send(err));
 };
 
